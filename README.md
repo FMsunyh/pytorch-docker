@@ -37,3 +37,4 @@ torch.__version__
 jupyter notebook password
 hdn3tTBzKZ&g4IBM
 ```
+生成 jupyter_notebook_config.json 文件，用copy的方式，复制到镜像中
