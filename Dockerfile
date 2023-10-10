@@ -22,12 +22,17 @@ RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config
 
 RUN echo 'export PATH=$PATH:/opt/conda/bin' >>  /root/.bashrc
 
+RUN  /opt/conda/bin/jupyter notebook --generate-config
+# RUN  echo 'hdn3tTBzKZ&g4IBM' | /opt/conda/bin/jupyter notebook password
+
 RUN mkdir /var/run/sshd
 
 EXPOSE 22
 EXPOSE 8889
 
-# COPY  . .
+COPY  ./server_app.sh /opt/server_app.sh
+COPY  ./jupyter_notebook_config.json /root/.jupyter/jupyter_notebook_config.json
+
 STOPSIGNAL SIGINT
-ENTRYPOINT [""]
-CMD ["/usr/sbin/sshd","-D"]
+ENTRYPOINT ["/bin/bash","/opt/server_app.sh"]
+# CMD ["/usr/sbin/sshd","-D"]

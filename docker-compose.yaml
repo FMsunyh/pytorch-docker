@@ -2,7 +2,7 @@ version: "3.8"
 services:
   pytorch-21.07-py3:
     container_name: pytorch-21.07-py3
-    image: registry.cn-shenzhen.aliyuncs.com/ai_base/pytorch-21.07-py3:100
+    image: registry.cn-shenzhen.aliyuncs.com/ai_base/pytorch-21.07-py3:101
     build:
       context: .
     ports:
