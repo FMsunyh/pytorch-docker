@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  pytorch-21.07-py3:
+    container_name: pytorch-21.07-py3
+    image: registry.cn-shenzhen.aliyuncs.com/ai_base/pytorch-21.07-py3:100
+    build:
+      context: .
+    ports:
+      - 127.0.0.1:5000:5000
+      - 9090:22
+      - 8889:8889
+    tty: true
+    ipc: host
+    environment:
+      CLI_ARGS: ""
+      SAFETENSORS_FAST_GPU: 1
+      DISPLAY: $DISPLAY
+    tmpfs:
+      - /tmp      
+    volumes:
+      - ./data:/data
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['0']
+              capabilities: [gpu]
+    restart: always
