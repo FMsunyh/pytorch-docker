@@ -10,12 +10,12 @@
 
 ## 拉取镜像
 ```bash
-sudo docker pull registry.cn-shenzhen.aliyuncs.com/ai_base/pytorch-21.07-py3:102
+sudo docker pull registry.cn-shenzhen.aliyuncs.com/ai_base/sd-webui-1.6.0:100
 ```
 
 ## 启动容器
 ```bash
-sudo docker run --gpus all -it  -p 8889:8889 9090:22  -v ./data:/data --rm registry.cn-shenzhen.aliyuncs.com/ai_base/pytorch-21.07-py3:102
+sudo docker run --gpus all -it  -p 8889:8889 9090:22  -v ./data:/data --rm registry.cn-shenzhen.aliyuncs.com/ai_base/sd-webui-1.6.0:100
 ```
 
 ## SSH配置

@@ -1,8 +1,8 @@
 version: "3.8"
 services:
-  pytorch-21.07-py3:
-    container_name: pytorch-21.07-py3
-    image: registry.cn-shenzhen.aliyuncs.com/ai_base/pytorch-21.07-py3:102
+  sd-webui:
+    container_name: sd-webui
+    image: registry.cn-shenzhen.aliyuncs.com/ai_base/sd-webui-1.6.0:100
     build:
       context: .
     ports:
