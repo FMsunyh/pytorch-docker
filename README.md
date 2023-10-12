@@ -1,8 +1,10 @@
 # pytorch-docker
 
+## Update log
 ## 环境
 - python 3.10 
 - pytorch 2.0.1
+- JupyterLab 4.0.6
 
 ## 拉取镜像
 ```bash

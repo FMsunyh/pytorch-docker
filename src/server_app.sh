@@ -13,7 +13,8 @@
 /usr/sbin/sshd -D &
 
 # Start the second process
-jupyter lab --no-browser --port=8889 &
+/opt/conda/envs/env/bin/jupyter lab  --allow-root --no-browser  --port=8889 --ip=0.0.0.0 &
+# /opt/conda/envs/env/bin/jupyter notebook --allow-root --no-browser --port=8889 &
 
 # Wait for any process to exit
 wait -n
