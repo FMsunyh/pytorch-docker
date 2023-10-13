@@ -1,7 +1,9 @@
-# pytorch-docker
+# sd-webui
 
-## Update log
-- 升级JupyterLab 4.0.6
+## 服务内容
+- sd-webui 1.6.0
+- ssh
+- JupyterLab
 
 ## 环境
 - python 3.10 
@@ -15,8 +17,10 @@ sudo docker pull registry.cn-shenzhen.aliyuncs.com/ai_base/sd-webui-1.6.0:100
 
 ## 启动容器
 ```bash
-sudo docker run --gpus all -it  -p 8889:8889 9090:22  -v ./data:/data --rm registry.cn-shenzhen.aliyuncs.com/ai_base/sd-webui-1.6.0:100
+sudo docker run --gpus all -it  -p 7860:7860 8889:8889 9090:22  -v ./data:/data --rm registry.cn-shenzhen.aliyuncs.com/ai_base/sd-webui-1.6.0:100
 ```
+## sd-webui
+端口：7860
 
 ## SSH配置
 用户名： root
