@@ -8,6 +8,7 @@ services:
     ports:
       - 127.0.0.1:5000:5000
       - 9090:22
+      - 7860:7860
       - 8889:8889
     tty: true
     ipc: host
@@ -19,6 +20,7 @@ services:
       - /tmp      
     volumes:
       - ./data:/data
+      - ./output:/output
     deploy:
       resources:
         reservations:
