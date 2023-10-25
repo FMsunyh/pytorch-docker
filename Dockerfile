@@ -27,16 +27,19 @@ RUN echo 'export PATH=$PATH:/opt/conda/bin' >>  /root/.bashrc
 RUN mkdir /var/run/sshd
 
 COPY  ./requirements.txt /opt/requirements.txt
+COPY  ./requirements_maile.txt /opt/requirements_maile.txt
 
-RUN /opt/conda/bin/conda create -n env python=3.10 -y
+RUN /opt/conda/bin/conda create -n env python=3.8 -y
 RUN --mount=type=cache,target=/cache --mount=type=cache,target=/root/.cache/pip \
-  aria2c -x 5 --dir /cache --out torch-2.0.1-cp310-cp310-linux_x86_64.whl -c \
-  https://download.pytorch.org/whl/cu118/torch-2.0.1%2Bcu118-cp310-cp310-linux_x86_64.whl && \
+  # aria2c -x 5 --dir /cache --out torch-2.0.1-cp310-cp310-linux_x86_64.whl -c \
+  # https://download.pytorch.org/whl/cu118/torch-2.0.1%2Bcu118-cp310-cp310-linux_x86_64.whl && \
   source activate env \
 
 
-  && pip install /cache/torch-2.0.1-cp310-cp310-linux_x86_64.whl torchvision --index-url https://download.pytorch.org/whl/cu118 \
-  && pip install -r /opt/requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple 
+  # && pip install /cache/torch-2.0.1-cp310-cp310-linux_x86_64.whl torchvision --index-url https://download.pytorch.org/whl/cu118 \
+  && pip install -r /opt/requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple \
+  && pip install -r /opt/requirements_maile.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+  # && pip install -U openmim mim install mmcv-full==1.7.0
 
 RUN  /opt/conda/envs/env/bin/jupyter server --generate-config
 
