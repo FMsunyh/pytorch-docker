@@ -13,12 +13,13 @@
 /usr/sbin/sshd -D &
 
 # Start the second process
-/opt/filebrowser/filebrowser config set --address 0.0.0.0 --port 8080  --config /opt/filebrowser/.filebrowser.json
+# /opt/filebrowser/filebrowser config set --address 0.0.0.0 --port 8080  --config /opt/filebrowser/.filebrowser.json
 cd /opt/filebrowser/
 ./filebrowser  &
 
 # Start the second process
-/opt/conda/envs/env/bin/jupyter lab  --allow-root --no-browser  --port=8889 --ip=0.0.0.0 &
+cd /
+jupyter lab  --allow-root --no-browser  --port=8889 --ip=0.0.0.0 &
 # /opt/conda/envs/env/bin/jupyter notebook --allow-root --no-browser --port=8889 &
 
 # Wait for any process to exit
