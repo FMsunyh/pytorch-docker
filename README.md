@@ -18,6 +18,10 @@
 端口：8889
 密码：hdn3tTBzKZ&g4IBM
 
+## filebrowser配置
+用户名：admin
+密码：admin
+端口：8080
 
 ## 镜像 pytorch:1.14.0
 
