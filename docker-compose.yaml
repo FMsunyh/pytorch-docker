@@ -1,8 +1,8 @@
 version: "3.8"
 services:
-  jupyterlab:
-    container_name: jupyterlab
-    image: registry.cn-shenzhen.aliyuncs.com/ai_base/jupyterlab:100
+  pytorch:
+    container_name: pytorch
+    image: registry.cn-shenzhen.aliyuncs.com/ai_base/pytorch:1.14.0
     build:
       context: .
     ports:
