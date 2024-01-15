@@ -1,6 +1,4 @@
-# pytorch-docker
-
-
+# pytorch 1.14.0
 
 ## 环境
 - [base image](https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel-23-02.html#rel-23-02)
