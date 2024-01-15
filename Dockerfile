@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/pytorch:23.02-py3
+FROM nvcr.io/nvidia/pytorch:23.09-py3
 
 # set time
 ENV TZ=Asia/Shanghai
