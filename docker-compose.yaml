@@ -1,14 +1,15 @@
 version: "3.8"
 services:
-  pytorch-21.07-py3:
-    container_name: pytorch-21.07-py3
-    image: registry.cn-shenzhen.aliyuncs.com/ai_base/pytorch-21.07-py3:102
+  jupyterlab:
+    container_name: jupyterlab
+    image: registry.cn-shenzhen.aliyuncs.com/ai_base/jupyterlab:100
     build:
       context: .
     ports:
       - 127.0.0.1:5000:5000
       - 9090:22
       - 8889:8889
+      - 8080:8080
     tty: true
     ipc: host
     environment:
@@ -16,7 +17,7 @@ services:
       SAFETENSORS_FAST_GPU: 1
       DISPLAY: $DISPLAY
     tmpfs:
-      - /tmp      
+      - /tmp
     volumes:
       - ./data:/data
     deploy:
@@ -24,6 +25,6 @@ services:
         reservations:
           devices:
             - driver: nvidia
-              device_ids: ['0']
-              capabilities: [gpu]
+              device_ids: [ '0' ]
+              capabilities: [ gpu ]
     restart: always

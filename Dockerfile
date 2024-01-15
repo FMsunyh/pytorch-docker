@@ -42,12 +42,17 @@ RUN  /opt/conda/envs/env/bin/jupyter server --generate-config
 
 RUN echo 'source activate env' >>  /root/.bashrc
 
-EXPOSE 22
-EXPOSE 8889
 
 COPY  ./src/server_app.sh /opt/server_app.sh
 COPY  ./src/jupyter_server_config.json /root/.jupyter/jupyter_server_config.json
+COPY ./data/filebrowser  /opt/filebrowser
 
+RUN echo "c.ServerApp.notebook_dir ='/'" >>  /root/.jupyter/jupyter_server_config.py
+
+
+EXPOSE 22
+EXPOSE 8889
+EXPOSE 8080
 STOPSIGNAL SIGINT
 ENTRYPOINT ["/bin/bash","/opt/server_app.sh"]
 # CMD ["/usr/sbin/sshd","-D"]
