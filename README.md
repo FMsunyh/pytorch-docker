@@ -1,12 +1,10 @@
 # pytorch-docker
 
-## Update log
-- 升级torch 2.1.0
 
 ## 环境
-- [base image](https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel-23-02.html#rel-23-02)
-- python 3.10.12
-- pytorch 2.1.0
+- [base image](https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/rel-22-11.html#rel-22-11)
+- python 3.8
+- pytorch 1.13.0
 - JupyterLab 2.3.2
 
 
