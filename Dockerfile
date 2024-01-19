@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/pytorch:23.09-py3
+FROM nvcr.io/nvidia/pytorch:22.05-py3
 
 # set time
 ENV TZ=Asia/Shanghai
@@ -27,7 +27,8 @@ RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config
 # RUN echo 'service ssh start' >>  /root/.bashrc
 RUN mkdir /var/run/sshd
 
-RUN echo 'export PATH=$PATH:/opt/conda/bin' >>  /root/.bashrc
+# 镜像中已经有conda
+# RUN echo 'export PATH=$PATH:/opt/conda/bin' >>  /root/.bashrc
 
 COPY  ./requirements.txt /opt/requirements.txt
 RUN --mount=type=cache,target=/cache --mount=type=cache,target=/root/.cache/pip \

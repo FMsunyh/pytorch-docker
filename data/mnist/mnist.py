@@ -18,6 +18,7 @@ print(sys.version)
 
 print("torch版本信息:")
 print(torch.__version__)
+print(torch.cuda.is_available())
 
 print("python路径:")
 print(sys.executable)
