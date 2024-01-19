@@ -27,22 +27,28 @@ RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config
 # RUN echo 'service ssh start' >>  /root/.bashrc
 RUN mkdir /var/run/sshd
 
-RUN echo 'export PATH=$PATH:/opt/conda/bin' >>  /root/.bashrc
+## config conda
+RUN mkdir -p /opt/miniconda3
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /opt/miniconda3/miniconda.sh
+RUN bash /opt/miniconda3/miniconda.sh -b -u -p /opt/miniconda3
+RUN rm -rf /opt/miniconda3/miniconda.sh
+
+RUN echo 'export PATH=$PATH:/opt/miniconda3/bin' >>  /root/.bashrc
 
 COPY  ./requirements.txt /opt/requirements.txt
 RUN --mount=type=cache,target=/cache --mount=type=cache,target=/root/.cache/pip \
   pip install -r /opt/requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple 
 
-COPY  ./src/server_app.sh /opt/server_app.sh
-COPY ./data/filebrowser  /opt/filebrowser
-
-COPY ./data/mnist  /mnist-example
 
 # config jupyter
 RUN  jupyter notebook --generate-config
 COPY  ./src/jupyter_notebook_config.json /root/.jupyter/jupyter_notebook_config.json
 RUN echo "c.NotebookApp.notebook_dir ='/'" >>  /root/.jupyter/jupyter_notebook_config.py
 
+COPY  ./src/server_app.sh /opt/server_app.sh
+COPY ./data/filebrowser  /opt/filebrowser
+
+COPY ./data/mnist  /mnist-example
 
 EXPOSE 22
 EXPOSE 8889
