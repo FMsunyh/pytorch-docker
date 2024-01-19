@@ -22,6 +22,20 @@
 密码：admin
 端口：8080
 
+
+## 镜像 pytorch:1.13.0
+
+### 拉取镜像
+```bash
+sudo docker pull registry.cn-shenzhen.aliyuncs.com/ai_base/pytorch:1.13.0
+```
+
+### 启动容器
+```bash
+sudo docker run --gpus all -it  -p 8889:8889 9090:22  -v ./data:/data --rm registry.cn-shenzhen.aliyuncs.com/ai_base/pytorch:pytorch:1.13.0
+```
+
+
 ## 测试
 ```vim
 import torch
